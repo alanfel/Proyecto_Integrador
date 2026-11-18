@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d9488" />
+  <title>Energía &amp; Clima · Dashboard de Inteligencia Energética y Climatológica</title>
+  <meta name="description" content="Dashboard interactivo de inteligencia energética y climatológica para Colombia: 600 meses de datos históricos, análisis descriptivo, series temporales, correlación, clustering y modelos de Deep Learning." />
+  <meta name="author" content="Dashboard Energía & Clima" />
+  <meta property="og:title" content="Energía & Clima · Dashboard analítico" />
+  <meta property="og:description" content="Consolidado de modelos de Deep Learning, Clustering y Analítica Descriptiva para la toma de decisiones en el sector energético colombiano." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d9488'/%3E%3Cpath d='M36 8 20 36h12l-4 20 18-30H34l2-18z' fill='%23fbbf24'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora-blob aurora-blob--teal"></span>
+    <span class="aurora-blob aurora-blob--amber"></span>
+    <span class="aurora-blob aurora-blob--blue"></span>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M13.5 2 5 14h6l-1.5 8L18 10h-6l1.5-8Z" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong>Energía &amp; Clima</strong>
+          <small>Dashboard analítico</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#resumen" class="nav-link is-active" data-nav>Resumen</a>
+        <a href="#modulos" class="nav-link" data-nav data-goto="dataframe">Módulos</a>
+        <a href="#modulos" class="nav-link" data-nav data-goto="dataframe">Datos</a>
+        <a href="#modulos" class="nav-link" data-nav data-goto="mlp">Modelos</a>
+        <a href="#modulos" class="nav-link" data-nav data-goto="paradigmas">Comparación</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar a tema oscuro" title="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-download" href="#" id="downloadCsvTop" aria-label="Descargar CSV histórico" title="Descargar CSV histórico">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <span>Descargar CSV</span>
+        </a>
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Inteligencia Energética &amp; Climatológica
+        </span>
+        <h1>Decisiones energéticas con <span class="grad-text">datos históricos</span> y modelos inteligentes.</h1>
+        <p class="hero-lead">
+          Consolidado de modelos de Deep Learning, Clustering y Analítica Descriptiva para la Toma de Decisiones
+          en el Sector Energético Colombiano con Gráficos Interactivos de Plotly.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#modulos" data-goto="dataframe">
+            Explorar dashboard
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#datos" data-goto="dataframe">Ver el dataset</a>
+        </div>
+        <ul class="hero-meta">
+          <li><strong data-count="600">600</strong><span>meses históricos</span></li>
+          <li><strong data-count="8">8</strong><span>variables numéricas</span></li>
+          <li><strong>1975–2024</strong><span>cobertura temporal</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual card">
+        <div class="hero-visual-head">
+          <div>
+            <span class="micro-label">Precio de bolsa nacional</span>
+            <div class="hero-price"><span id="heroSparkLast">—</span> <small>COP/kWh</small></div>
+          </div>
+          <span class="pill pill--teal">Serie histórica</span>
+        </div>
+        <div class="hero-spark-wrap">
+          <svg id="heroSpark" viewBox="0 0 420 150" role="img" aria-label="Evolución histórica del precio de bolsa nacional"></svg>
+        </div>
+        <div class="hero-visual-foot">
+          <div><span>Mín.</span><strong id="heroSparkMin">—</strong></div>
+          <div><span>Máx.</span><strong id="heroSparkMax">—</strong></div>
+          <div><span>Meses</span><strong>600</strong></div>
+        </div>
+        <span class="hero-visual-glow" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats container" aria-label="Resumen de dimensiones">
+      <article class="stat-card reveal">
+        <span class="stat-icon stat-icon--teal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V5m0 14h16M8 16V9m4 7V6m4 10v-4m4 4V8"/></svg>
+        </span>
+        <div><span class="stat-label">Muestras históricas</span><strong class="stat-value">600 <small>meses</small></strong></div>
+      </article>
+      <article class="stat-card reveal">
+        <span class="stat-icon stat-icon--amber" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2"/></svg>
+        </span>
+        <div><span class="stat-label">Dataset activo</span><strong class="stat-value">Histórico <small>operativo</small></strong></div>
+      </article>
+      <article class="stat-card reveal">
+        <span class="stat-icon stat-icon--blue" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+        </span>
+        <div><span class="stat-label">Variables analíticas</span><strong class="stat-value">8 <small>numéricas</small></strong></div>
+      </article>
+      <article class="stat-card reveal">
+        <span class="stat-icon stat-icon--violet" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </span>
+        <div><span class="stat-label">Capacidades</span><strong class="stat-value">11 <small>módulos</small></strong></div>
+      </article>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="section container" id="resumen">
+      <header class="section-head">
+        <span class="eyebrow eyebrow--plain">Resumen ejecutivo</span>
+        <h2>El pulso del sistema energético colombiano</h2>
+        <p>Indicadores calculados sobre las 600 observaciones mensuales del dataset: precio de bolsa, demanda, aportes hídricos y clima.</p>
+      </header>
+
+      <div class="kpi-grid">
+        <article class="kpi-card reveal">
+          <div class="kpi-head"><span>Precio promedio</span><span class="kpi-icon">⚡</span></div>
+          <strong class="kpi-value" id="kpiPrice">—</strong>
+          <span class="kpi-unit">COP/kWh</span>
+          <span class="kpi-meta" id="kpiPriceMeta">Promedio histórico</span>
+        </article>
+        <article class="kpi-card reveal">
+          <div class="kpi-head"><span>Precio máximo</span><span class="kpi-icon">📈</span></div>
+          <strong class="kpi-value" id="kpiMax">—</strong>
+          <span class="kpi-unit">COP/kWh</span>
+          <span class="kpi-meta" id="kpiMaxMeta">Máximo registrado</span>
+        </article>
+        <article class="kpi-card reveal">
+          <div class="kpi-head"><span>Demanda promedio</span><span class="kpi-icon">🔌</span></div>
+          <strong class="kpi-value" id="kpiDemand">—</strong>
+          <span class="kpi-unit">GWh/día</span>
+          <span class="kpi-meta" id="kpiDemandMeta">Promedio histórico</span>
+        </article>
+        <article class="kpi-card reveal">
+          <div class="kpi-head"><span>Aportes hídricos</span><span class="kpi-icon">💧</span></div>
+          <strong class="kpi-value" id="kpiHydro">—</strong>
+          <span class="kpi-unit">%</span>
+          <span class="kpi-meta" id="kpiHydroMeta">Promedio histórico</span>
+        </article>
+      </div>
+
+      <div class="chart-grid">
+        <article class="card chart-card span-8 reveal">
+          <header class="card-head">
+            <div><h3>Precio de bolsa vs. Índice ONI</h3><p>Relación entre el precio nacional y el comportamiento climático.</p></div>
+            <span class="pill">COP/kWh · índice</span>
+          </header>
+          <div class="plot plot--lg" id="chartOverviewPrice" role="img" aria-label="Gráfico de precio de bolsa e índice ONI en el tiempo"></div>
+        </article>
+
+        <article class="card chart-card span-4 reveal">
+          <header class="card-head">
+            <div><h3>Estado climático</h3><p>Distribución de los 600 meses registrados.</p></div>
+          </header>
+          <div class="plot plot--lg" id="chartOverviewClimate" role="img" aria-label="Distribución del estado climático"></div>
+        </article>
+
+        <article class="card chart-card span-6 reveal">
+          <header class="card-head">
+            <div><h3>Correlación con el precio</h3><p>Fuerza de asociación lineal de cada variable frente al precio de bolsa.</p></div>
+          </header>
+          <div class="plot" id="chartOverviewCorr" role="img" aria-label="Correlaciones de las variables con el precio de bolsa"></div>
+        </article>
+
+        <article class="card chart-card span-6 reveal">
+          <header class="card-head">
+            <div><h3>Variabilidad relativa</h3><p>Coeficiente de variación (desviación / media) de cada variable numérica.</p></div>
+          </header>
+          <div class="plot" id="chartOverviewVars" role="img" aria-label="Variabilidad relativa por variable"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <section class="section container" id="modulos">
+      <header class="section-head">
+        <span class="eyebrow eyebrow--plain">Módulos analíticos</span>
+        <h2>Once capacidades, un solo tablero</h2>
+        <p>Modifica los parámetros y ejecuta cada análisis para iniciar el procesamiento interactivo en tiempo real.</p>
+      </header>
+
+      <div class="tip-banner reveal">
+        <span class="tip-icon" aria-hidden="true">💡</span>
+        <p><strong>Consejo:</strong> selecciona una pestaña, ajusta los parámetros y usa los botones destacados para calcular el análisis. Todos los resultados se generan a partir de los datos históricos reales.</p>
+      </div>
+
+      <div class="workspace">
+        <aside class="module-nav card" aria-label="Módulos del dashboard">
+          <span class="module-nav-title">Navegación &amp; control</span>
+          <button type="button" class="module-link is-active" data-module="dataframe"><span class="ml-ico">📋</span><span>DataFrame</span></button>
+          <button type="button" class="module-link" data-module="stats"><span class="ml-ico">📊</span><span>Estadísticas</span></button>
+          <button type="button" class="module-link" data-module="univariate"><span class="ml-ico">📈</span><span>Univariado</span></button>
+          <button type="button" class="module-link" data-module="bivariate"><span class="ml-ico">🔄</span><span>Bivariado</span></button>
+          <button type="button" class="module-link" data-module="series"><span class="ml-ico">📅</span><span>Series temporales</span></button>
+          <button type="button" class="module-link" data-module="rnn"><span class="ml-ico">📈</span><span>RNN</span></button>
+          <button type="button" class="module-link" data-module="correlation"><span class="ml-ico">🔥</span><span>Correlación</span></button>
+          <button type="button" class="module-link" data-module="clustering"><span class="ml-ico">🌐</span><span>Clustering</span></button>
+          <button type="button" class="module-link" data-module="mlp"><span class="ml-ico">🧠</span><span>MLP Regresión</span></button>
+          <button type="button" class="module-link" data-module="classification"><span class="ml-ico">🏷️</span><span>Clasificación neural</span></button>
+          <button type="button" class="module-link" data-module="paradigmas"><span class="ml-ico">⚖️</span><span>Paradigmas</span></button>
+          <div class="module-nav-foot">
+            <span>600 meses · 8 variables</span>
+            <span class="dot-live"></span>
+          </div>
+        </aside>
+
+        <div class="module-panel card" id="modulePanel" tabindex="-1">
+          <!-- Contenido generado por app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M13.5 2 5 14h6l-1.5 8L18 10h-6l1.5-8Z" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-text"><strong>Energía &amp; Clima</strong><small>Dashboard analítico</small></span>
+        </a>
+        <p>Consolidado de modelos de Deep Learning, Clustering y Analítica Descriptiva para la toma de decisiones en el sector energético colombiano.</p>
+        <div class="footer-badges">
+          <span class="pill">600 meses</span>
+          <span class="pill">8 variables</span>
+          <span class="pill">1975–2024</span>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Módulos">
+        <h3>Módulos</h3>
+        <a href="#modulos" data-goto="dataframe">DataFrame y filtros</a>
+        <a href="#modulos" data-goto="stats">Estadísticas</a>
+        <a href="#modulos" data-goto="series">Series temporales</a>
+        <a href="#modulos" data-goto="correlation">Correlación</a>
+        <a href="#modulos" data-goto="clustering">Clustering</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Modelos">
+        <h3>Modelos</h3>
+        <a href="#modulos" data-goto="rnn">SimpleRNN</a>
+        <a href="#modulos" data-goto="mlp">MLP Regresión</a>
+        <a href="#modulos" data-goto="classification">Clasificación neural</a>
+        <a href="#modulos" data-goto="paradigmas">Paradigmas</a>
+      </nav>
+
+      <div class="footer-col">
+        <h3>Recursos</h3>
+        <a href="#" id="downloadCsvFooter">Descargar CSV</a>
+        <a href="#" id="downloadJsonFooter">Descargar JSON</a>
+        <a href="https://staining-spinal-dainty.ngrok-free.dev" target="_blank" rel="noopener noreferrer">Ver app original ↗</a>
+        <span class="footer-note">Datos históricos mensuales del sistema energético colombiano.</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> Dashboard Energía &amp; Clima. Basado en la información del dashboard original.</span>
+      <span>Analítica descriptiva · Series temporales · Deep Learning</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
+  </button>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="assets/vendor/plotly.min.js"></script>
+  <script src="assets/vendor/xlsx.full.min.js"></script>
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
